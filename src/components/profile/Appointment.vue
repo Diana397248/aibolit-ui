@@ -1,9 +1,11 @@
 <template>
   <p class="title">Запись на прием</p>
-  <AppointmentCard/>
-  <AppointmentCard/>
-  <AppointmentCard/>
-  <AppointmentCard/>
+  <div class="d-flex flex-column gap-5 mb-16">
+    <AppointmentCard/>
+    <AppointmentCard/>
+    <AppointmentCard/>
+    <AppointmentCard/>
+  </div>
 </template>
 
 <script setup>

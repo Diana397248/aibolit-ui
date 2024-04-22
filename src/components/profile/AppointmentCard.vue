@@ -1,5 +1,5 @@
 <template>
-  <v-card class=" pa-8 card mb-15">
+  <v-card class=" pa-8 card">
     <v-card-text>
       <v-row>
         <v-col cols="3">
@@ -38,5 +38,7 @@ import Picture from "@/components/profile/Picture.vue"
 </script>
 
 <style scoped>
-
+.card{
+  border-radius: 20px;
+}
 </style>

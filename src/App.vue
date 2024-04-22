@@ -27,7 +27,7 @@ import '@/style.css';
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
 
 .header-wrapper {
-  padding: 50px !important;
+  padding: 30px !important;
 }
 
 body {

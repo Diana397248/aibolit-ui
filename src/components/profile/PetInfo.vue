@@ -10,13 +10,15 @@
               text-btn="Изменить"/>
         </v-col>
 
-        <v-col>
+        <v-col class="d-flex flex-column gap-5">
           <p class="pet-name">Громопетр</p>
           <!--          <Field label="имя" text="Громопетр"/>-->
-          <Field label="тип" text="Собака"/>
-          <Field label="пол" text="Мужской"/>
-          <Field label="порода" text="Без породы"/>
-          <Field label="возраст" text="1 год"/>
+          <div>
+            <Field label="тип" text="Собака"/>
+            <Field label="пол" text="Мужской"/>
+            <Field label="порода" text="Без породы"/>
+            <Field label="возраст" text="1 год"/>
+          </div>
         </v-col>
 
 

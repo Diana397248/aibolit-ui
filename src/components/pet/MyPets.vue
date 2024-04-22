@@ -22,7 +22,7 @@
 </template>
 
 <script setup>
-import PetInfo from "@/components/profile/PetInfo.vue"
+import PetInfo from "@/components/pet/PetCard.vue"
 import AddPetIcon from "@/components/icons/AddPetIcon.vue"
 
 </script>

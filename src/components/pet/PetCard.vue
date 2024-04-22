@@ -12,7 +12,6 @@
 
         <v-col class="d-flex flex-column gap-5">
           <p class="pet-name">Громопетр</p>
-          <!--          <Field label="имя" text="Громопетр"/>-->
           <div>
             <Field label="тип" text="Собака"/>
             <Field label="пол" text="Мужской"/>

@@ -21,7 +21,7 @@ import RequestPage from "../pages/request/RequestPage.vue";
 import UserProfile from '@/pages/profile/UserProfile.vue';
 
 import Field from '@/components/profile/Field.vue';
-import Picture from '@/components/profile/Picture.vue';
+import PetForm from '@/components/pet/PetForm.vue';
 
 const router = createRouter({
     history: createWebHistory(),
@@ -134,13 +134,9 @@ const router = createRouter({
         {
             path: "/temp",
             name: "temp",
-            component: Field,
+            component: PetForm,
         },
-        {
-            path: "/picture",
-            name: "picture",
-            component: Picture,
-        },
+
     ],
 });
 

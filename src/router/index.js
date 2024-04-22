@@ -10,118 +10,138 @@ import AddPost from "../pages/post/AddPost.vue"
 import Friends from '../pages/friend/FriendsPage.vue'
 import Chats from '../pages/chat/Chats.vue'
 import Dialogs from "../pages/chat/Dialogs.vue";
-import Profile from '../pages/profile/Profile.vue'
-import ProfileEdit from '../pages/profile/ProfileEdit.vue'
+import Profile from '../pages/profile/OldProfile.vue'
+import ProfileEdit from '../pages/profile/OldProfileEdit.vue'
 import CategoryPage from '../pages/category/CategoryPage.vue'
 
 import OrderListPage from '../pages/order/OrderListPage.vue'
 import EditOrdersPage from '../pages/order/EditOrderPage.vue'
 import MyOrders from '../pages/order/MyOrders.vue'
 import RequestPage from "../pages/request/RequestPage.vue";
+import UserProfile from '@/pages/profile/UserProfile.vue';
+
+import Field from '@/components/profile/Field.vue';
+import Picture from '@/components/profile/Picture.vue';
 
 const router = createRouter({
-  history: createWebHistory(),
-  routes: [
-    {
-      path: "/",
-      name: "MainPage",
-      component: Posts,
-    },
-    {
-      path: "/products",
-      name: "Products",
-      component: ProductListPage,
-    },
-    {
-      path: "/products/create",
-      name: "CreateProduct",
-      component: CreateProductPage,
-    },
-    {
-      path: "/products/edit/:productId",
-      name: "EditProduct",
-      component: EditProductPage,
-    },
+    history: createWebHistory(),
+    routes: [
+        {
+            path: "/",
+            name: "MainPage",
+            component: Posts,
+        },
+        {
+            path: "/products",
+            name: "Products",
+            component: ProductListPage,
+        },
+        {
+            path: "/products/create",
+            name: "CreateProduct",
+            component: CreateProductPage,
+        },
+        {
+            path: "/products/edit/:productId",
+            name: "EditProduct",
+            component: EditProductPage,
+        },
 
-    {
-      path: "/orders",
-      name: "Orders",
-      component: OrderListPage,
-    },
-    {
-      path: "/orders/edit/:orderId",
-      name: "EditOrder",
-      component: EditOrdersPage,
-    },
+        {
+            path: "/orders",
+            name: "Orders",
+            component: OrderListPage,
+        },
+        {
+            path: "/orders/edit/:orderId",
+            name: "EditOrder",
+            component: EditOrdersPage,
+        },
 
-    {
-      path: "/register",
-      name: "Register",
-      component: RegisterPage,
-    },
-    {
-      path: "/login",
-      name: "Login",
-      component: LoginPage,
-    },
+        {
+            path: "/register",
+            name: "Register",
+            component: RegisterPage,
+        },
+        {
+            path: "/login",
+            name: "Login",
+            component: LoginPage,
+        },
 
-    {
-      path: "/my_order",
-      name: "MyOrders",
-      component: MyOrders,
-    },
+        {
+            path: "/my_order",
+            name: "MyOrders",
+            component: MyOrders,
+        },
 
-    {
-      path: "/cart",
-      name: "Cart",
-      component: CartPage,
-    },
-    {
-      path: "/posts",
-      name: "Posts",
-      component: Posts,
-    },
-    {
-      path: "/addpost",
-      name: "AddPost",
-      component: AddPost,
-    },
-    {
-      path: "/friends",
-      name: "Friends",
-      component: Friends,
-    },
-    {
-      path: "/chats",
-      name: "Chats",
-      component: Chats,
-    },
-    {
-      path: "/chats/:chatId",
-      name: "Dialogs",
-      component: Dialogs,
-    },
-    {
-      path: "/profile",
-      name: "Profile",
-      component: Profile,
-    },
-    {
-      path: "/profile/edit",
-      name: "ProfileEdit",
-      component: ProfileEdit,
-    },
-    {
-      path: "/categories",
-      name: "CategoryPage",
-      component: CategoryPage,
-    },
-    {
-      path: "/request",
-      name: "RequestPage",
-      component: RequestPage,
-    },
-  ],
+        {
+            path: "/cart",
+            name: "Cart",
+            component: CartPage,
+        },
+        {
+            path: "/posts",
+            name: "Posts",
+            component: Posts,
+        },
+        {
+            path: "/addpost",
+            name: "AddPost",
+            component: AddPost,
+        },
+        {
+            path: "/friends",
+            name: "Friends",
+            component: Friends,
+        },
+        {
+            path: "/chats",
+            name: "Chats",
+            component: Chats,
+        },
+        {
+            path: "/chats/:chatId",
+            name: "Dialogs",
+            component: Dialogs,
+        },
+        {
+            path: "/profile",
+            name: "Profile",
+            component: Profile,
+        },
+        {
+            path: "/profile/edit",
+            name: "ProfileEdit",
+            component: ProfileEdit,
+        },
+        {
+            path: "/categories",
+            name: "CategoryPage",
+            component: CategoryPage,
+        },
+        {
+            path: "/request",
+            name: "RequestPage",
+            component: RequestPage,
+        },
+
+        {
+            path: "/user_profile",
+            name: "UserProfile",
+            component: UserProfile,
+        },
+        {
+            path: "/temp",
+            name: "temp",
+            component: Field,
+        },
+        {
+            path: "/picture",
+            name: "picture",
+            component: Picture,
+        },
+    ],
 });
 
 

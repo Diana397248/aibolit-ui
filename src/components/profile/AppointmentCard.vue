@@ -1,0 +1,42 @@
+<template>
+  <v-card class=" pa-8 card mb-15">
+    <v-card-text>
+      <v-row>
+        <v-col cols="3">
+          <Picture
+              img="/Ellipse.png"
+              text-btn="Отменить прием"
+          />
+        </v-col>
+
+
+        <v-col>
+          <v-row class="h-100 gap-5">
+            <v-col class="d-flex flex-column justify-content-between">
+              <Field label="врач" text="Иванова Ирина Владимировна"/>
+              <Field label="ветклиника" text="Айболит на Краснополянской"/>
+            </v-col>
+
+            <v-col class="d-flex flex-column justify-content-between">
+              <Field label="питомец" text="Громопетр"/>
+              <Field label="дата" text="15.10.19"/>
+              <Field label="время" text="15:35"/>
+            </v-col>
+
+          </v-row>
+        </v-col>
+
+
+      </v-row>
+    </v-card-text>
+  </v-card>
+</template>
+
+<script setup>
+import Field from "@/components/profile/Field.vue"
+import Picture from "@/components/profile/Picture.vue"
+</script>
+
+<style scoped>
+
+</style>

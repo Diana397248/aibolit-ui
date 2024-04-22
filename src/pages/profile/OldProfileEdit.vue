@@ -3,5 +3,5 @@
 </template>
 
 <script setup>
-import ProfileEdit from "../../components/profile/ProfileEdit.vue"
+import ProfileEdit from "../../components/profile/OldProfileEdit.vue"
 </script>

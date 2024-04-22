@@ -1,24 +1,43 @@
 <script setup>
 import Header from './components/Header.vue'
-// import Footer from './components/Footer.vue'
+import Footer from './components/Footer.vue'
 import '@mdi/font/css/materialdesignicons.css'
 import "vue3-toastify/dist/index.css";
+import '@/style.css';
 </script>
 
 <template>
-  <div class="container py-3">
+  <div class="header-wrapper">
     <Header/>
-    <main>
-      <router-view/>
-    </main>
-    <!-- <Footer/> -->
   </div>
+
+  <div class="container-wrapper">
+    <div class="container">
+      <main>
+        <router-view/>
+      </main>
+    </div>
+  </div>
+  <Footer/>
+
+
 </template>
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
-body{
+
+.header-wrapper {
+  padding: 50px !important;
+}
+
+body {
   background: #FFFEFE;
   font-family: 'Inter', monospace;
+}
+
+.container-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 </style>

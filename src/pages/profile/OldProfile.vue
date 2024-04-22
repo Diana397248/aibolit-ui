@@ -33,7 +33,7 @@
 
 </template>
 <script setup>
-import CompProfile from "../../components/profile/CompProfile.vue"
+import CompProfile from "../../components/profile/OldCompProfile.vue"
 </script>
 <style scoped>
 button {

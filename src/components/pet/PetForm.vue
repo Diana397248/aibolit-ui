@@ -3,36 +3,39 @@
     <v-card-text>
       <v-row>
 
-
-        <v-col class="d-flex flex-column" cols="4">
-          <Picture
-              img="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQgByBT5IiAT_a2x9pUVb4VMoOrlzHH7Jrzj-HB5jzHlR4lNLMS"
-              text-btn="Изменить"/>
+        <v-col class="d-flex flex-column align-center justify-content-center " cols="4">
+          <image-input v-model="avatar"/>
         </v-col>
 
         <v-col class="d-flex flex-column gap-5">
-          <p class="pet-name">Громопетр</p>
-          <v-form fast-fail @submit.prevent>
+          <v-row justify="space-between" class="mx-3">
+            <p class="pet-name">Громопетр</p>
+            <v-btn @click="emmit('close')" color="rgba(245, 67, 55, 0.94)" :icon="CloseIcon"></v-btn>
+          </v-row>
+          <v-form @submit.prevent>
+            <v-text-field
+                v-model="model.name"
+                :rules="rules.name"
+                label="имя"/>
             <v-text-field
                 v-model="model.type"
                 :rules="rules.type"
-                label="тип" text="Собака"/>
+                label="тип"/>
             <v-text-field
                 v-model="model.gender"
                 :rules="rules.gender"
-                label="пол" text="Мужской"/>
+                label="пол"/>
             <v-text-field
                 v-model="model.breed"
                 :rules="rules.breed"
-                label="порода" text="Без породы"/>
+                label="порода"/>
             <v-text-field
                 v-model="model.age"
                 :rules="rules.age"
-                label="возраст" text="1 год"/>
-            <v-btn class="mt-2" type="submit" block>Submit</v-btn>
+                label="возраст"/>
+            <AddPetBtn class="mt-2" size="small"/>
           </v-form>
         </v-col>
-
       </v-row>
     </v-card-text>
   </v-card>
@@ -41,11 +44,27 @@
 <script setup>
 import Picture from "@/components/profile/Picture.vue"
 import Field from "@/components/profile/Field.vue"
+import CloseIcon from "@/components/icons/CloseIcon.vue"
+import ImageInput from "@/components/base/ImageInput.vue"
+import AddPetBtn from "@/components/base/AddPetBtn.vue"
 
-import {reactive} from 'vue'
+import {reactive, ref, watch} from 'vue'
 
+const emmit = defineEmits([
+  'close'
+])
+
+const avatar = ref(
+    null
+);
 
 const rules = {
+  name: [
+    value => {
+      if (false) return true
+      return 'Last name can not contain digits.'
+    }
+  ],
   type: [
     value => {
       if (false) return true
@@ -73,11 +92,17 @@ const rules = {
 }
 
 const model = reactive({
+  name: "",
   type: "",
   gender: "",
   breed: "",
   age: "",
 })
+
+watch(avatar, (newValues, prevValues) => {
+  console.log(newValues, prevValues)
+})
+
 </script>
 
 <style scoped>
@@ -89,5 +114,16 @@ const model = reactive({
   font-size: 30px;
   display: flex;
   gap: 20px;
+}
+
+.ex-col {
+  width: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+:deep(.v-field__field label) {
+  margin-left: 10px !important;
 }
 </style>

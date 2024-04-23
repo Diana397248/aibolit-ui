@@ -12,3 +12,9 @@
     color: #C3B9B5;
 
 }
+
+.example{
+    height: 100px;
+    width: 100px;
+    background-color: red;
+}

@@ -3,7 +3,7 @@
     <v-avatar color="surface-variant" size="130">
       <v-img :src="props.img"></v-img>
     </v-avatar>
-    <v-btn class="my-btn" variant="text" color="#FFC59E">
+    <v-btn v-if="props.textBtn" class="my-btn" variant="text" color="#FFC59E">
       {{ props.textBtn }}
     </v-btn>
   </div>

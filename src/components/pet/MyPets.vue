@@ -1,17 +1,6 @@
 <template>
   <p class="title">Мои питомцы</p>
-
-  <v-btn color="#FFC59E" class="btn-add mb-8 text-white fs-3 fw-bold" block="">
-    <template v-slot:prepend>
-      <v-icon
-          size="133"
-          :icon="AddPetIcon"
-      />
-    </template>
-
-    Добавить нового питомца
-
-  </v-btn>
+  <PetFormBlock/>
 
   <div class="d-flex flex-column gap-5">
     <PetInfo></PetInfo>
@@ -23,13 +12,10 @@
 
 <script setup>
 import PetInfo from "@/components/pet/PetCard.vue"
-import AddPetIcon from "@/components/icons/AddPetIcon.vue"
+import PetFormBlock from "@/components/pet/PetFormBlock.vue"
 
 </script>
 
 <style scoped>
-.btn-add {
-  height: 150px !important;
-  border-radius: 20px;
-}
+
 </style>

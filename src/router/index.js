@@ -22,6 +22,8 @@ import UserProfile from '@/pages/profile/UserProfile.vue';
 
 import Field from '@/components/profile/Field.vue';
 import PetForm from '@/components/pet/PetForm.vue';
+import UserForm from '@/components/user/UserForm.vue';
+import AddPetBtn from '@/components/base/AddPetBtn.vue';
 
 const router = createRouter({
     history: createWebHistory(),
@@ -135,6 +137,11 @@ const router = createRouter({
             path: "/temp",
             name: "temp",
             component: PetForm,
+        },
+        {
+            path: "/temp2",
+            name: "temp2",
+            component: UserForm,
         },
 
     ],

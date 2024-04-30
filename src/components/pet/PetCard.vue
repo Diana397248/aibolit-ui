@@ -6,17 +6,17 @@
 
         <v-col class="d-flex flex-column">
           <Picture
-              img="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQgByBT5IiAT_a2x9pUVb4VMoOrlzHH7Jrzj-HB5jzHlR4lNLMS"
+              :img="props.pet.img"
               text-btn="Изменить"/>
         </v-col>
 
         <v-col class="d-flex flex-column gap-5">
-          <p class="pet-name">Громопетр</p>
+          <p class="pet-name">{{ props.pet.name }}</p>
           <div>
-            <Field label="тип" text="Собака"/>
-            <Field label="пол" text="Мужской"/>
-            <Field label="порода" text="Без породы"/>
-            <Field label="возраст" text="1 год"/>
+            <Field label="тип" :text="props.pet.type"/>
+            <Field label="пол" :text="props.pet.species"/>
+            <Field label="порода" :text="props.pet.year_birth"/>
+            <Field label="возраст" :text="props.pet.gender"/>
           </div>
         </v-col>
 
@@ -49,6 +49,10 @@
 import CardAnalysis from "@/components/profile/CardAnalysis.vue"
 import Picture from "@/components/profile/Picture.vue"
 import Field from "@/components/profile/Field.vue"
+
+const props = defineProps({
+  pet: Object
+})
 </script>
 
 <style scoped>

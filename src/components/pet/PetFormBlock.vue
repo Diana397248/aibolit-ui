@@ -1,6 +1,6 @@
 <template>
   <template v-if="isEdit">
-    <PetForm @close="changeMode" class="mb-8"/>
+    <PetForm @updatePets="updatePets" @close="changeMode" class="mb-8"/>
   </template>
 
   <template v-else>
@@ -18,7 +18,13 @@ const isEdit = ref(false)
 const changeMode = () => {
   isEdit.value = !isEdit.value
 }
+const emmit = defineEmits([
+  'updatePets'
+])
 
+const updatePets = () => {
+  emmit('updatePets')
+}
 </script>
 
 <style scoped>

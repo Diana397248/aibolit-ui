@@ -35,7 +35,7 @@
                 v-model="model.age"
                 :rules="rules.age"
                 label="возраст"/>
-            <AddPetBtn class="mt-2" size="small"/>
+            <AddPetBtn class="mt-2" size="small" @click="createPet"/>
           </v-form>
         </v-col>
       </v-row>
@@ -51,10 +51,35 @@ import ImageInput from "@/components/base/ImageInput.vue"
 import AddPetBtn from "@/components/base/AddPetBtn.vue"
 
 import {reactive, ref, watch} from 'vue'
+import {http} from "@/axios/index.js";
 
 const emmit = defineEmits([
-  'close'
+  'close',
+  'updatePets'
 ])
+
+const createPet = () => {
+  const pet = {
+    "name": model.name,
+    "type": model.type,
+    "species": model.breed,
+    "year_birth": model.age,
+    "img": "https://web-zoopark.ru/wp-content/uploads/2018/06/2-597.jpg",
+    "gender": model.gender,
+    "owner_id": 1
+  }
+  console.log(pet)
+  http.post('/api/pets', pet)
+      .then((res) => {
+        if (res.status === 201) {
+          emmit('updatePets')
+        }
+
+      })
+      .catch((error) => {
+        console.log(error)
+      })
+}
 
 const avatar = ref(
     null

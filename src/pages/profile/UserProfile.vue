@@ -24,7 +24,7 @@
 import LeftSide from "@/components/profile/LeftSide.vue"
 import UserInfo from "@/components/profile/UserInfo.vue"
 import MyPets from "@/components/pet/MyPets.vue"
-import Appointment from "@/components/profile/Appointment.vue"
+import Appointment from "@/components/appointment/Appointment.vue"
 </script>
 
 <style scoped>

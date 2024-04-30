@@ -4,30 +4,34 @@
     <v-card-text>
       <v-row>
 
-        <v-col class="d-flex flex-column gap-5">
+        <v-col class="d-flex flex-column align-center justify-content-center " cols="4">
+          <image-input v-model="avatar"/>
+        </v-col>
 
+        <v-col class="d-flex flex-column gap-5">
           <v-form fast-fail @submit.prevent>
             <v-text-field
                 v-model="model.name"
                 :rules="rules.name"
-                label="имя" text="Собака"/>
+                label="имя"/>
             <v-text-field
                 v-model="model.surname"
                 :rules="rules.surname"
-                label="фамилия" text="Мужской"/>
+                label="фамилия"/>
             <v-text-field
                 v-model="model.patronymic"
                 :rules="rules.patronymic"
-                label="отчество" text="Без породы"/>
+                label="отчество"/>
             <v-text-field
-                v-model="model.age"
-                :rules="rules.age"
-                label="телефон" text="1 год"/>
+                v-model="model.number"
+                :rules="rules.number"
+                label="телефон"/>
             <v-text-field
-                v-model="model.age"
-                :rules="rules.age"
-                label="О себе" text="1 год"/>
-            <v-btn class="mt-2" type="submit" block>Изменить</v-btn>
+                v-model="model.about_me"
+                :rules="rules.about_me"
+                label="о себе"/>
+<!--            TODO сделать кнопке размер-->
+            <v-btn class="mt-2 text-white fw-bold" color="#FFC59E" type="submit" block>Изменить</v-btn>
           </v-form>
         </v-col>
 
@@ -39,6 +43,8 @@
 
 <script setup>
 import {reactive} from 'vue'
+
+import ImageInput from "@/components/base/ImageInput.vue"
 
 
 const rules = {
@@ -63,15 +69,16 @@ const rules = {
   number: [
     value => {
       if (value > 0) return true
-      return 'Возраст должен быть больше 0'
+      return 'Введите свой номер телефона'
     },
   ],
-  description: [
-    value => {
-      if (value > 0) return true
-      return 'Возраст должен быть больше 0'
-    },
-  ],
+  //TODO это не обязательное поле
+  // about_me: [
+  //   value => {
+  //     if (value > 0) return true
+  //     return 'Расскажите о себе'
+  //   },
+  // ],
 }
 
 const model = reactive({
@@ -83,5 +90,7 @@ const model = reactive({
 </script>
 
 <style scoped>
-
+:deep(.v-field__field label) {
+  margin-left: 10px !important;
+}
 </style>

@@ -9,7 +9,7 @@
 </template>
 
 <script setup>
-import AppointmentCard from "@/components/profile/AppointmentCard.vue"
+import AppointmentCard from "@/components/appointment/AppointmentCard.vue"
 
 </script>
 

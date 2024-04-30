@@ -24,6 +24,8 @@ import Field from '@/components/profile/Field.vue';
 import PetForm from '@/components/pet/PetForm.vue';
 import UserForm from '@/components/user/UserForm.vue';
 import AddPetBtn from '@/components/base/AddPetBtn.vue';
+import AddAppointment from '@/components/appointment/AddAppointment.vue';
+import Calendars from '@/components/appointment/Calendars.vue';
 
 const router = createRouter({
     history: createWebHistory(),
@@ -122,11 +124,6 @@ const router = createRouter({
             name: "CategoryPage",
             component: CategoryPage,
         },
-        {
-            path: "/request",
-            name: "RequestPage",
-            component: RequestPage,
-        },
 
         {
             path: "/user_profile",
@@ -143,6 +140,12 @@ const router = createRouter({
             name: "temp2",
             component: UserForm,
         },
+        {
+            path: "/tem",
+            name: "temp2",
+            component: Calendars,
+        },
+
 
     ],
 });

@@ -8,10 +8,12 @@
         </v-col>
 
         <v-col class="d-flex flex-column gap-5">
+
           <v-row justify="space-between" class="mx-3">
             <p class="pet-name">Громопетр</p>
             <v-btn @click="emmit('close')" color="rgba(245, 67, 55, 0.94)" :icon="CloseIcon"></v-btn>
           </v-row>
+
           <v-form @submit.prevent>
             <v-text-field
                 v-model="model.name"

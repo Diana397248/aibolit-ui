@@ -6,7 +6,7 @@
 
         <v-col class="d-flex flex-column">
           <Picture
-              :img="props.pet.img"
+              :img="getFileUrl(props.pet.img)"
               text-btn="Изменить"/>
         </v-col>
 
@@ -14,9 +14,9 @@
           <p class="pet-name">{{ props.pet.name }}</p>
           <div>
             <Field label="тип" :text="props.pet.type"/>
-            <Field label="пол" :text="props.pet.species"/>
-            <Field label="порода" :text="props.pet.year_birth"/>
-            <Field label="возраст" :text="props.pet.gender"/>
+            <Field label="порода" :text="props.pet.species"/>
+            <Field label="возраст" :text="props.pet.year_birth"/>
+            <Field label="пол" :text="props.pet.gender"/>
           </div>
         </v-col>
 
@@ -49,6 +49,7 @@
 import CardAnalysis from "@/components/profile/CardAnalysis.vue"
 import Picture from "@/components/profile/Picture.vue"
 import Field from "@/components/profile/Field.vue"
+import {getFileUrl} from "@/axios/index.js"
 
 const props = defineProps({
   pet: Object

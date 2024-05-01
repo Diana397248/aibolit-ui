@@ -4,13 +4,13 @@
       <v-row>
 
         <v-col class="d-flex flex-column align-center justify-content-center " cols="4">
-          <image-input v-model="avatar"/>
+          <image-input v-model="model.img"/>
         </v-col>
 
         <v-col class="d-flex flex-column gap-5">
 
-          <v-row justify="space-between" class="mx-3">
-            <p class="pet-name">Громопетр</p>
+          <v-row justify="end" class="mx-3">
+            <!--            <p class="pet-name">Добавление питомца</p>-->
             <v-btn @click="emmit('close')" color="rgba(245, 67, 55, 0.94)" :icon="CloseIcon"></v-btn>
           </v-row>
 
@@ -51,7 +51,7 @@ import ImageInput from "@/components/base/ImageInput.vue"
 import AddPetBtn from "@/components/base/AddPetBtn.vue"
 
 import {reactive, ref, watch} from 'vue'
-import {http} from "@/axios/index.js";
+import {http, upload} from "@/axios/index.js";
 
 const emmit = defineEmits([
   'close',
@@ -64,12 +64,14 @@ const createPet = () => {
     "type": model.type,
     "species": model.breed,
     "year_birth": model.age,
-    "img": "https://web-zoopark.ru/wp-content/uploads/2018/06/2-597.jpg",
     "gender": model.gender,
-    "owner_id": 1
   }
-  console.log(pet)
-  http.post('/api/pets', pet)
+  console.log(model.img.file)
+  upload(model.img.file, null, 'img', '/api/pets', (formData) => {
+    for (let key in pet) {
+      formData.append(key, pet[key]);
+    }
+  })
       .then((res) => {
         if (res.status === 201) {
           emmit('updatePets')
@@ -89,25 +91,25 @@ const rules = {
   name: [
     value => {
       if (false) return true
-      return 'Last name can not contain digits.'
+      return 'Поле должно быть заполнено.'
     }
   ],
   type: [
     value => {
       if (false) return true
-      return 'Last name can not contain digits.'
+      return 'Поле должно быть заполнено.'
     }
   ],
   gender: [
     value => {
       if (false) return true
-      return 'Last name can not contain digits.'
+      return 'Выберите пол животного.'
     }
   ],
   breed: [
     value => {
       if (false) return true
-      return 'Last name can not contain digits.'
+      return 'Введите породу животного.'
     }
   ],
   age: [
@@ -124,6 +126,7 @@ const model = reactive({
   gender: "",
   breed: "",
   age: "",
+  img: "",
 })
 
 watch(avatar, (newValues, prevValues) => {

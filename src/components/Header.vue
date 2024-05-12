@@ -4,7 +4,7 @@
 
 <!--      TODO в router-link добавить переадресацию на нужные страницы-->
       <router-link
-          :to="{ name: 'Posts' }"
+          :to="{ name: 'HomePage' }"
           class="d-flex align-items-center text-black text-decoration-none"
       >
         <img :src="imgLogo" class="fs-4 py-2"/>
@@ -12,7 +12,7 @@
       </router-link>
       <nav class="mx-12">
         <router-link
-            :to="{ name: '' }"
+            :to="{ name: 'UserProfile' }"
             class="me-8 py-2 text-black text-decoration-none fs-4 fw-bold"
         >
           УСЛУГИ
@@ -26,7 +26,7 @@
         </router-link>
 
         <router-link
-            :to="{ name: 'Friends' }"
+            :to="{ name: '' }"
             class="me-8 py-2 text-black text-decoration-none fs-4 fw-bold"
         >
           О НАС

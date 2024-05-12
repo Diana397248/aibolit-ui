@@ -3,10 +3,15 @@
     <v-card-text>
       <v-row>
         <v-col cols="3">
-          <Picture
-              img="/Ellipse.png"
-              text-btn="Отменить прием"
-          />
+          <router-link
+              :to="{ name: 'Calendars' }"
+              class="me-8 py-2 text-black text-decoration-none fs-4 fw-bold"
+          >
+            <Picture
+                img="/Ellipse.png"
+                text-btn="Отменить прием"
+            />
+          </router-link>
         </v-col>
 
 
@@ -38,7 +43,7 @@ import Picture from "@/components/profile/Picture.vue"
 </script>
 
 <style scoped>
-.card{
+.card {
   border-radius: 20px;
 }
 </style>

@@ -14,7 +14,6 @@
       </v-row>
     </v-card-text>
 
-
   </v-card>
 </template>
 

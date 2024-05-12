@@ -4,7 +4,7 @@
       <v-row>
         <v-col cols="3">
           <Picture
-              img="/Ellipse.png"
+              :img="props.appointment.vet.img"
               text-btn="Отменить прием"
           />
         </v-col>
@@ -13,14 +13,14 @@
         <v-col>
           <v-row class="h-100 gap-5">
             <v-col class="d-flex flex-column justify-content-between">
-              <Field label="врач" text="Иванова Ирина Владимировна"/>
+              <Field label="врач" :text="props.appointment.vet.name"/>
               <Field label="ветклиника" text="Айболит на Краснополянской"/>
             </v-col>
 
             <v-col class="d-flex flex-column justify-content-between">
-              <Field label="питомец" text="Громопетр"/>
-              <Field label="дата" text="15.10.19"/>
-              <Field label="время" text="15:35"/>
+              <Field label="питомец" :text="props.appointment.pet.name"/>
+              <Field label="дата" :text="appDate.toLocaleDateString()"/>
+              <Field label="время" :text="appDate.toLocaleTimeString()"/>
             </v-col>
 
           </v-row>
@@ -35,10 +35,21 @@
 <script setup>
 import Field from "@/components/profile/Field.vue"
 import Picture from "@/components/profile/Picture.vue"
+import {computed} from "vue";
+
+const props = defineProps({
+  appointment: Object,
+
+})
+
+const appDate = computed(() => {
+  return new Date(props.appointment.app_date)
+})
+
 </script>
 
 <style scoped>
-.card{
+.card {
   border-radius: 20px;
 }
 </style>

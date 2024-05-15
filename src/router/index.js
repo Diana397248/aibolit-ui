@@ -22,10 +22,21 @@ import UserProfile from '@/pages/profile/UserProfile.vue';
 
 import Field from '@/components/profile/Field.vue';
 import PetForm from '@/components/pet/PetForm.vue';
+import CardAnalysis from '@/components/profile/CardAnalysis.vue';
+
 import UserForm from '@/components/user/UserForm.vue';
 import AddPetBtn from '@/components/base/AddPetBtn.vue';
+
 import AddAppointment from '@/components/appointment/AddAppointment.vue';
 import Calendars from '@/components/appointment/Calendars.vue';
+
+import Carousel from '@/components/home/Carousel.vue';
+import CardServices from '@/components/home/CardServices.vue';
+import Card from '@/components/home/CardServices.vue';
+import HomePage from '@/pages/home/HomePage.vue';
+
+
+import AppointmentBtn from '@/components/buttons/AppointmentBtn.vue';
 
 const router = createRouter({
     history: createWebHistory(),
@@ -137,13 +148,39 @@ const router = createRouter({
         },
         {
             path: "/temp2",
-            name: "temp2",
+            name: "UserForm",
             component: UserForm,
         },
         {
             path: "/tem",
-            name: "temp2",
+            name: "Calendars",
             component: Calendars,
+        },
+
+        {
+            path: "/tem3",
+            name: "tem3",
+            component: AddAppointment,
+        },
+        {
+            path: "/caru",
+            name: "Carousel",
+            component: Carousel,
+        },
+        {
+            path: "/tem5",
+            name: "HomePage",
+            component: HomePage,
+        },
+        {
+            path: "/temmm",
+            name: "AppointmentBtn",
+            component: AppointmentBtn,
+        },
+        {
+            path: "/card",
+            name: "Card",
+            component: Card,
         },
 
 

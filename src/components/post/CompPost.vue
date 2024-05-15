@@ -35,7 +35,6 @@
 </template>
 
 <script setup>
-import imgFile from "@assets/post-img__1.png";
 
 const props = defineProps({
   post: Object

@@ -8,10 +8,16 @@
           <v-row no-gutters="true" class="left-site">
 
             <v-col>
+              <router-link
+                  :to="{ name: 'UserForm' }"
+                  class="me-8 py-2 text-black text-decoration-none fs-4 fw-bold"
+              >
               <Picture
                   img="https://upload.wikimedia.org/wikipedia/commons/0/0e/Felis_silvestris_silvestris.jpg"
                   textBtn="Изменить"
               />
+              </router-link>
+
             </v-col>
 
             <v-col class="fields">

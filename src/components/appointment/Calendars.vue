@@ -7,7 +7,19 @@
         view-mode="month"
         :weekdays="[  2, 3, 4, 5, 6, 0, 1]"
         hide-week-number="false"
-      >
+    >
+      <template v-slot:event="obj">
+        <div class="m-1 d-flex flex-column">
+          <v-chip :color="obj.event.color" class="appoint-chip d-flex justify-content-center">
+            {{ obj.event.title }} {{
+              new Date(obj.event.start).toLocaleTimeString([], {
+                hour: '2-digit',
+                minute: '2-digit'
+              })
+            }}
+          </v-chip>
+        </div>
+      </template>
     </v-calendar>
   </div>
 </template>
@@ -19,17 +31,108 @@ import {VCalendar} from 'vuetify/labs/VCalendar'
 
 onMounted(() => {
   const adapter = useDate()
-  getEvents({
-    start: adapter.startOfDay(adapter.startOfMonth(new Date())),
-    end: adapter.endOfDay(adapter.endOfMonth(new Date()))
-  })
+  // getEvents({
+  //   start: adapter.startOfDay(adapter.startOfMonth(new Date())),
+  //   end: adapter.endOfDay(adapter.endOfMonth(new Date()))
+  // })
 })
+
 
 const types = reactive(['month', 'week', 'day'])
 const value = ref([new Date()])
-const events = reactive([])
+const events = ref([{
+  "title": "Операция",
+  "start": new Date("2024-05-06T15:15:00.000Z"),
+  "end": new Date("2024-05-06T19:15:00.000Z"),
+  "color": "blue",
+  "allDay": true
+}, {
+  "title": "Повторный прием",
+  "start": new Date("2024-05-26T08:35:00.000Z"),
+  "end": new Date("2024-05-26T08:45:00.000Z"),
+  "color": "indigo",
+  "allDay": false
+}, {
+  "title": "Укол",
+  "start": new Date("2024-05-12T06:30:00.000Z"),
+  "end": new Date("2024-05-12T06:30:00.000Z"),
+  "color": "grey darken-1",
+  "allDay": false
+}, {
+  "title": "Осмотр",
+  "start": new Date("2024-05-02T08:45:00.000Z"),
+  "end": new Date("2024-05-02T08:45:00.000Z"),
+  "color": "indigo",
+  "allDay": true
+}, {
+  "title": "Укол от бешенства",
+  "start": new Date("2024-05-22T10:15:00.000Z"),
+  "end": new Date("2024-05-22T10:15:00.000Z"),
+  "color": "orange",
+  "allDay": false
+}, {
+  "title": "Консультация",
+  "start": new Date("2024-05-13T14:30:00.000Z"),
+  "end": new Date("2024-05-13T14:30:00.000Z"),
+  "color": "blue",
+  "allDay": false
+}, {
+  "title": "Снятие швов",
+  "start": new Date("2024-05-27T13:30:00.000Z"),
+  "end": new Date("2024-05-27T13:30:00.000Z"),
+  "color": "blue",
+  "allDay": false
+}, {
+  "title": "Повторный прием",
+  "start": new Date("2024-05-22T08:45:00.000Z"),
+  "end": new Date("2024-05-22T08:45:00.000Z"),
+  "color": "indigo",
+  "allDay": false
+}, {
+  "title": "Укол от бешенства",
+  "start": new Date("2024-05-20T04:15:00.000Z"),
+  "end": new Date("2024-05-20T06:15:00.000Z"),
+  "color": "green",
+  "allDay": true
+}, {
+  "title": "Повторный прием",
+  "start": new Date("2024-05-02T05:00:00.000Z"),
+  "end": new Date("2024-05-02T03:30:00.000Z"),
+  "color": "cyan",
+  "allDay": true
+}, {
+  "title": "Консультация",
+  "start": new Date("2024-05-09T13:45:00.000Z"),
+  "end": new Date("2024-05-09T13:45:00.000Z"),
+  "color": "indigo",
+  "allDay": false
+}, {
+  "title": "Укол",
+  "start": new Date("2024-05-23T09:00:00.000Z"),
+  "end": new Date("2024-05-23T09:00:00.000Z"),
+  "color": "blue",
+  "allDay": false
+}, {
+  "title": "Осмотр",
+  "start": new Date("2024-05-14T03:45:00.000Z"),
+  "end": new Date("2024-05-14T03:45:00.000Z"),
+  "color": "deep-purple",
+  "allDay": false
+}, {
+  "title": "Операция",
+  "start": new Date("2024-05-05T08:30:00.000Z"),
+  "end": new Date("2024-05-05T09:15:00.000Z"),
+  "color": "indigo",
+  "allDay": true
+}, {
+  "title": "Снятие швов",
+  "start": new Date("2024-05-01T11:00:00.000Z"),
+  "end": new Date("2024-05-01T11:00:00.000Z"),
+  "color": "indigo",
+  "allDay": true
+},])
 const colors = reactive(['blue', 'indigo', 'deep-purple', 'cyan', 'green', 'orange', 'grey darken-1'])
-const titles = reactive(['Meeting', 'Holiday', 'PTO', 'Travel', 'Event', 'Birthday', 'Conference', 'Party'])
+const titles = reactive(['Укол', 'Осмотр', 'Операция', 'Консультация', 'Повторный прием', 'Кастрация', 'Укол от бешенства', 'Снятие швов'])
 
 const getDay = (date) => {
   const WeekDays = ['7', '1', '2', '3', '4', '5', '6'];
@@ -37,7 +140,8 @@ const getDay = (date) => {
 
 }
 const getEvents = ({start, end}) => {
-  const events = []
+  const evs = []
+
 
   const min = start
   const max = end
@@ -51,7 +155,7 @@ const getEvents = ({start, end}) => {
     const secondTimestamp = rnd(2, allDay ? 288 : 8) * 900000
     const second = new Date(first.getTime() + secondTimestamp)
 
-    events.push({
+    evs.push({
       title: titles[rnd(0, titles.length - 1)],
       start: first,
       end: second,
@@ -59,6 +163,8 @@ const getEvents = ({start, end}) => {
       allDay: !allDay,
     })
   }
+  events.value = evs
+
 }
 
 const getEventColor = (event) => {
@@ -73,5 +179,6 @@ const rnd = (a, b) => {
 </script>
 
 <style scoped>
-
+.appoint-chip :deep( .v-chip__content) {
+}
 </style>

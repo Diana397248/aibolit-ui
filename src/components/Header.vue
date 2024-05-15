@@ -31,6 +31,12 @@
         >
           О НАС
         </router-link>
+        <router-link
+            :to="{ name: 'Calendars' }"
+            class="me-8 py-2 text-black text-decoration-none fs-4 fw-bold"
+        >
+          ЗАПИСАТЬСЯ
+        </router-link>
 
 
         <router-link

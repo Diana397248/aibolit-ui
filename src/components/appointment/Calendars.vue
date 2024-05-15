@@ -7,6 +7,8 @@
         view-mode="month"
         :weekdays="[  2, 3, 4, 5, 6, 0, 1]"
         hide-week-number="false"
+
+        @click="goToAppointmentForm"
     >
       <template v-slot:event="obj">
         <div class="m-1 d-flex flex-column">
@@ -28,6 +30,9 @@
 import {useDate} from 'vuetify'
 import {onMounted, reactive, ref} from "vue";
 import {VCalendar} from 'vuetify/labs/VCalendar'
+import {useRouter} from "vue-router";
+
+const router = useRouter();
 
 onMounted(() => {
   const adapter = useDate()
@@ -175,6 +180,9 @@ const rnd = (a, b) => {
   return Math.floor((b - a + 1) * Math.random()) + a
 }
 
+const goToAppointmentForm = () => {
+  router.push({name: 'AddAppointment'})
+}
 
 </script>
 

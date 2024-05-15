@@ -1,9 +1,17 @@
 <template>
-  <v-btn class="button mt-2 text-white fw-bold" color="#FFC59E" type="submit" block>ЗАПИСАТЬСЯ</v-btn>
+  <v-btn @click="goToAppointmentForm" class="button mt-2 text-white fw-bold" color="#FFC59E" type="submit" block>ЗАПИСАТЬСЯ
+  </v-btn>
 </template>
 
 <script setup>
 
+import {useRouter} from "vue-router";
+
+const router = useRouter();
+
+const goToAppointmentForm = () => {
+  router.push({name: 'Calendars'})
+}
 </script>
 
 <style scoped>

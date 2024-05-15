@@ -152,14 +152,14 @@ const router = createRouter({
             component: UserForm,
         },
         {
-            path: "/tem",
+            path: "/calendar",
             name: "Calendars",
             component: Calendars,
         },
 
         {
-            path: "/tem3",
-            name: "tem3",
+            path: "/AddAppointment",
+            name: "AddAppointment",
             component: AddAppointment,
         },
         {
